@@ -1,0 +1,13 @@
+NAME                          READY   STATUS        RESTARTS   AGE
+logoutput-f557d8946-kmrph     1/1     Running       0          2d7h
+projectapp-5bcd457989-t4sww   1/1     Running       0          55s
+projectapp-5bcd457989-xqcf2   1/1     Terminating   0          65s
+toniaho@MacBook-Pro 1.05 % kubectl port-forward 3001:8009
+error: TYPE/NAME and list of ports are required for port-forward
+See 'kubectl port-forward -h' for help and examples
+toniaho@MacBook-Pro 1.05 % kubectl port-forward 
+projectapp-5bcd457989-t4sww 3001:8009
+Forwarding from 127.0.0.1:3001 -> 8009
+Forwarding from [::1]:3001 -> 8009
+Handling connection for 3001
+Handling connection for 3001

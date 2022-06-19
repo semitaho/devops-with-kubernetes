@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: files-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: files
+  template:
+    metadata:
+      labels:
+        app: files
+    spec:
+      volumes: # Define volume
+        - name: shared-path
+          emptyDir: {}
+      containers:
+        - name:  logoutputwriter
+          image: semitaho/logoutputwriter
+          volumeMounts: # Mount volume
+          - name: shared-path
+            mountPath: /log
+        - name: logoutputreader
+          image: semitaho/logoutputreader
+          volumeMounts: # Mount volume
+          - name: shared-path
+            mountPath: /log

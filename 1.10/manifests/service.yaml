@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: logreader-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: files # This is the app as declared in the deployment.
+  ports:
+    - port: 1235 
+      protocol: TCP
+      targetPort: 7001 # This is the target port
